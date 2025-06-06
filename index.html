@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="zh-Hant" class="scroll-smooth"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;AI 提示語快速參考指南 (最終優化版)&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- 導入 Tailwind CSS 框架 --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- 導入 Google Fonts 以獲得更好的中文字體渲染 --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 基礎樣式與自訂 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Noto Sans TC', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #f8fafc; /* Tailwind: bg-slate-50 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #334155; /* Tailwind: text-slate-700 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 漸層文字效果 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.gradient-text {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #3b82f6, #8b5cf6);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-webkit-background-clip: text;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-webkit-text-fill-color: transparent;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* &lt;details&gt; 標籤的箭頭圖示 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>details &gt; summary {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>list-style: none; /* 移除預設的箭頭 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>details &gt; summary::-webkit-details-marker {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: none; /* 同上 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 自訂箭頭，並在展開時旋轉 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.expand-icon {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: transform 0.2s ease-in-out;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>details[open] .expand-icon {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: rotate(180deg);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body class="antialiased" id="top"&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Header --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;header id="main-header" class="bg-white/90 backdrop-blur-lg shadow-sm sticky top-0 z-50"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="container mx-auto max-w-5xl px-4 py-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-center sm:justify-start"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h1 class="text-2xl font-bold gradient-text"&gt;AI 提示語快速參考指南&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p class="text-sm text-slate-500 mt-1"&gt;7 個實用技巧，讓 AI 成為你的最強助手&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- 主內容區 --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;main class="container mx-auto max-w-5xl px-4 py-8 sm:py-12"&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- 技巧總覽區 --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="summary" class="bg-white p-6 rounded-2xl shadow-lg mb-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-xl font-bold text-slate-900 mb-5 flex items-center gap-2"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span class="text-2xl"&gt;🎯&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span&gt;快速掌握 7 個核心技巧&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div id="summary-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;!-- 總覽項目將由 JS 動態生成 --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- 技巧詳情區 --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="tips-container" class="space-y-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- 技巧卡片將由 JS 動態生成 --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- 重要提醒區 --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section class="mt-12 bg-amber-50 border-l-4 border-amber-400 text-amber-900 p-6 rounded-r-lg"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-xl font-bold mb-3 flex items-center gap-2 text-amber-800"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span class="text-2xl"&gt;⚠️&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span&gt;重要提醒：AI 結果必須人工檢查！&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="space-y-1.5 mb-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;🤥 AI 會「一本正經地胡說八道」&lt;/strong&gt; - 可能產生看似專業但完全錯誤的內容。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;📅 事實可能過時&lt;/strong&gt; - AI 的知識庫有時間限制。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;🧠 邏輯可能有漏洞&lt;/strong&gt; - 特別是涉及數字計算或複雜推理時。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="bg-white/70 p-4 rounded-lg border border-amber-200/80"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p class="font-bold mb-2"&gt;🔍 檢查重點清單：&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;ul class="list-none space-y-1.5 text-sm"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;strong class="font-semibold"&gt;✅ 事實準確性：&lt;/strong&gt;數據、日期、人名、公司名是否正確。&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;strong class="font-semibold"&gt;✅ 邏輯合理性：&lt;/strong&gt;推論過程是否合理。&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;strong class="font-semibold"&gt;✅ 語調適當性：&lt;/strong&gt;是否符合你的品牌或個人形象。&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;strong class="font-semibold"&gt;✅ 完整性：&lt;/strong&gt;是否遺漏了重要資訊。&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Footer --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;footer class="mt-16 bg-slate-800 text-white text-center py-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="text-slate-300"&gt;適用於 ChatGPT、Claude、Gemini 等各種 AI 平台&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="text-sm text-slate-400 mt-2 opacity-80"&gt;Frank 更新於 2025年6月&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', function () {</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// --- 資料來源 ---</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const tipsData = [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>id: 'tip1',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>icon: '🧠',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>color: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-400' },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>title: '用「四要素」讓 AI 秒懂你的需求',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>summary: '角色 + 任務 + 情境 + 格式',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>content: `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="relative p-4 sm:p-5 font-mono text-sm bg-slate-100 text-slate-800 rounded-lg mb-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;strong&gt;📝 萬用公式：&lt;/strong&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>我是 [角色]，需要 [任務]，背景是 [情境]，請用 [格式] 呈現</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="grid sm:grid-cols-2 gap-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-red-50 border border-red-200 p-4 rounded-lg"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-red-700 mb-2"&gt;❌ 普通版&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p class="text-red-900"&gt;「寫個會議總結」&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p class="mt-2 text-xs text-red-600"&gt;結果：可能得到空泛模板&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-green-50 border border-green-200 p-4 rounded-lg"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-green-700 mb-2"&gt;✅ 升級版&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p class="text-green-900"&gt;「我是專案經理，需要總結今天的進度會議，背景是我們正在開發新產品，有 5 個部門參與，請用條列方式呈現重點決議和下週待辦事項」&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p class="mt-2 text-xs text-green-600"&gt;結果：得到針對性具體內容&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>id: 'tip2',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>icon: '✨',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>color: { bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-400' },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>title: '用「神奇萬能句」解決開始難題',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>summary: '讓 AI 幫你優化提示語',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>content: `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="relative p-4 sm:p-5 font-mono text-sm bg-slate-100 text-slate-800 rounded-lg mb-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;strong&gt;🪄 萬能句型：&lt;/strong&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>「幫我把這個需求改寫成更好的提示語：[你的原始想法]」</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-slate-100 p-4 rounded-lg"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;h4 class="font-bold mb-2"&gt;🔄 神奇轉換實例：&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div class="space-y-3"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;原始想法：&lt;/strong&gt;「我想要一個行銷企劃」&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p class="text-center text-slate-400 text-2xl font-light"&gt;↓&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p&gt;&lt;strong&gt;問 AI：&lt;/strong&gt;「幫我把這個需求改寫成更好的提示語：我想要一個行銷企劃」&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p class="text-center text-slate-400 text-2xl font-light"&gt;↓&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div class="bg-white p-3 border border-slate-200 rounded-md"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;p&gt;&lt;strong&gt;AI 回覆：&lt;/strong&gt;「我是行銷專員，需要為新產品制定 3 個月的行銷企劃，目標客群是 25-35 歲上班族，預算 50 萬，請提供包含通路策略、內容規劃和效果評估的完整企劃書」&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                 </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>id: 'tip3',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>icon: '💬',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>color: { bg: 'bg-green-50', text: 'text-green-600', border: 'border-green-400' },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>title: '用「對話式修正」讓答案更完美',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>summary: '持續追問，讓答案越來越好',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>content: `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="grid md:grid-cols-2 gap-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-green-100/60 p-4 rounded-lg border border-green-200"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-green-800 mb-2"&gt;💬 追問金句清單：&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;ul class="list-disc list-inside space-y-1 text-green-900"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;li&gt;「可以更具體一點嗎？」&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;li&gt;「幫我加上實際的數字和時間」&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;li&gt;「改成比較正式/輕鬆的語氣」&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;li&gt;「增加 3 個實際案例」&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                             </span>&lt;div class="bg-slate-100 p-4 rounded-lg"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold mb-2"&gt;📈 三輪對話優化實例：&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div class="space-y-3"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div class="border-l-4 border-slate-300 pl-3"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;p&gt;&lt;strong&gt;第一輪：&lt;/strong&gt;「幫我寫個銷售郵件」&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-sm text-slate-500"&gt;🤖 AI 回覆：[通用模板]&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div class="border-l-4 border-slate-400 pl-3"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;p&gt;&lt;strong&gt;第二輪：&lt;/strong&gt;「加上我們產品的三個核心優勢，語氣要更親切」&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-sm text-slate-500"&gt;🤖 AI 回覆：[個人化內容]&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div class="border-l-4 border-slate-600 pl-3"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;p&gt;&lt;strong&gt;第三輪：&lt;/strong&gt;「在結尾加上限時優惠，製造緊迫感」&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-sm text-slate-500"&gt;🤖 AI 回覆：[完美的銷售郵件]&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>id: 'tip4',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>icon: '🎯',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>color: { bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-400' },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>title: '善用「情境包裝」讓 AI 進入角色',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>summary: '賦予 AI 專業身分，提升品質',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>content: `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="relative p-4 sm:p-5 font-mono text-sm bg-slate-100 text-slate-800 rounded-lg mb-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;strong&gt;👔 角色設定公式：&lt;/strong&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>「你是一位有 10 年經驗的 [專業角色]...」</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="overflow-x-auto"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;table class="w-full border-collapse"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;thead&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;th class="border p-3 bg-slate-100 text-left"&gt;🥱 普通版&lt;/th&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;th class="border p-3 bg-slate-100 text-left"&gt;🚀 專家版&lt;/th&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/thead&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;tbody&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;td class="border p-3 align-top"&gt;「分析這個數據」&lt;/td&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;td class="border p-3 align-top"&gt;「你是一位資深數據分析師，擅長從複雜數據中找出商業洞察。請分析這份銷售數據，找出三個關鍵趨勢和兩個改善建議，用商業簡報的格式呈現」&lt;/td&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/tbody&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/table&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p class="mt-4 text-center font-bold text-orange-700 bg-orange-100 p-3 rounded-lg"&gt;🔥 驚人差異：AI 會展現出對應領域的專業知識和表達方式！&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>id: 'tip5',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>icon: '📄',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>color: { bg: 'bg-pink-50', text: 'text-pink-600', border: 'border-pink-400' },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>title: '用「格式指定」讓輸出完全符合需求',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>summary: '指定輸出格式，一次到位',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>content: `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                         </span>&lt;div class="grid md:grid-cols-2 gap-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-pink-100/60 p-4 rounded-lg border border-pink-200"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold text-pink-800 mb-2"&gt;📑 格式選項清單：&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div class="grid grid-cols-2 gap-2 text-center text-sm font-medium"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-white p-2 rounded-md shadow-sm"&gt;📝 條列式&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-white p-2 rounded-md shadow-sm"&gt;📊 表格形式&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-white p-2 rounded-md shadow-sm"&gt;🔄 步驟流程&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-white p-2 rounded-md shadow-sm"&gt;💬 問答對話&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-white p-2 rounded-md shadow-sm col-span-2"&gt;🎯 簡報大綱&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                             </span>&lt;div class="bg-slate-100 p-4 rounded-lg"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-bold mb-2"&gt;📋 格式化實例：&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div class="relative text-sm font-mono p-3 bg-white border rounded-md mb-2"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>「用表格格式比較 iPhone 和 Samsung 的優缺點，包含價格、功能、設計三個維度」</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div class="overflow-x-auto"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;table class="w-full border-collapse text-sm"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                  </span>&lt;thead&gt;&lt;tr&gt;&lt;th class="border p-2 bg-slate-200"&gt;項目&lt;/th&gt;&lt;th class="border p-2 bg-slate-200"&gt;iPhone&lt;/th&gt;&lt;th class="border p-2 bg-slate-200"&gt;Samsung&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                  </span>&lt;tbody&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;tr&gt;&lt;td class="border p-2"&gt;💰 價格&lt;/td&gt;&lt;td class="border p-2"&gt;較高但保值&lt;/td&gt;&lt;td class="border p-2"&gt;選擇多元&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;tr&gt;&lt;td class="border p-2"&gt;⚙️ 功能&lt;/td&gt;&lt;td class="border p-2"&gt;系統流暢&lt;/td&gt;&lt;td class="border p-2"&gt;客製化高&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;tr&gt;&lt;td class="border p-2"&gt;🎨 設計&lt;/td&gt;&lt;td class="border p-2"&gt;簡約經典&lt;/td&gt;&lt;td class="border p-2"&gt;創新多變&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                  </span>&lt;/tbody&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/table&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                 </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>id: 'tip6',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>icon: '🔍',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>color: { bg: 'bg-indigo-50', text: 'text-indigo-600', border: 'border-indigo-400' },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>title: '用「具體限制」讓答案更精準',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>summary: '21字黃金法則，細節決定成敗',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>content: `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-indigo-100/60 p-4 rounded-lg border border-indigo-200 mb-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;h4 class="font-bold text-indigo-800 mb-2"&gt;⚙️ 限制條件清單：&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-indigo-900 text-sm"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div&gt;&lt;strong class="font-semibold"&gt;📏 字數限制：&lt;/strong&gt;「控制在 200 字內」&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div&gt;&lt;strong class="font-semibold"&gt;🔢 數量限制：&lt;/strong&gt;「提供 5 個選項」&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div&gt;&lt;strong class="font-semibold"&gt;⏰ 時間限制：&lt;/strong&gt;「30 分鐘內可完成」&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div&gt;&lt;strong class="font-semibold"&gt;💰 預算限制：&lt;/strong&gt;「成本控制在 1 萬元內」&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-amber-50 p-4 rounded-lg border-2 border-amber-300"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                             </span>&lt;h4 class="text-lg font-bold text-amber-800 mb-3 text-center"&gt;💎 黃金法則：21 字以上效果更好&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                             </span>&lt;div class="grid sm:grid-cols-2 gap-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div class="bg-red-50 border border-red-200 p-3 rounded-lg"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;h5 class="font-bold text-red-700 mb-1"&gt;❌ 太簡短&lt;/h5&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-red-900 text-sm"&gt;「寫郵件」(2字)&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div class="bg-green-50 border border-green-200 p-3 rounded-lg"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;h5 class="font-bold text-green-700 mb-1"&gt;✅ 剛好長度&lt;/h5&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-green-900 text-sm"&gt;「我是業務經理，要寫信給客戶說明產品延期原因，語氣要誠懇並提供補償方案」(31字)&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>id: 'tip7',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>icon: '📚',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>color: { bg: 'bg-red-50', text: 'text-red-600', border: 'border-red-400' },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>title: '用「範例示範」讓 AI 理解你的期待',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>summary: '用範例讓 AI 模仿風格和水準',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>content: `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="relative p-4 sm:p-5 font-mono text-sm bg-slate-100 text-slate-800 rounded-lg mb-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                             </span>&lt;strong&gt;📖 範例引導公式：&lt;/strong&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>「參考這個範例的風格：[貼上範例]，幫我寫一個類似的...」</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-slate-100 p-4 rounded-lg"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                             </span>&lt;h4 class="font-bold mb-2"&gt;📱 社群貼文實例：&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                             </span>&lt;div class="relative bg-white p-3 border rounded-md text-sm italic"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p class="not-italic text-slate-500 text-xs mb-1"&gt;範例提示：&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>「參考這個社群貼文的風格：&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>『今天學到一個超實用的 Excel 技巧！原來按 Ctrl+Shift+L 就能快速開啟篩選功能，工作效率直接提升 50%！你們還知道哪些隱藏技巧呢？💪 #職場技巧』&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>幫我寫一個介紹 PowerPoint 技巧的貼文，同樣要有互動感和實用性」</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                             </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                             </span>&lt;p class="text-center text-2xl my-3 text-slate-400"&gt;↓&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                             </span>&lt;p class="text-center font-bold text-green-700 bg-green-100 p-3 rounded-lg"&gt;🎯 AI 會完美複製你想要的語調和結構！&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// --- DOM 元素 ---</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const summaryContainer = document.getElementById('summary-container');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const tipsContainer = document.getElementById('tips-container');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const header = document.getElementById('main-header');</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// --- 渲染畫面 ---</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>tipsData.forEach((tip, index) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const summaryItem = document.createElement('a');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>summaryItem.href = `#${tip.id}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>summaryItem.className = `summary-link p-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${tip.color.bg} border-l-4 ${tip.color.border}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>summaryItem.innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="font-bold text-base ${tip.color.text}"&gt;${tip.title.split('：')[0]}&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="text-sm text-slate-600 mt-1"&gt;${tip.summary}&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>summaryContainer.appendChild(summaryItem);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const tipCard = document.createElement('details');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>tipCard.id = tip.id;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>tipCard.className = 'bg-white rounded-2xl shadow-lg overflow-hidden transition-shadow hover:shadow-xl';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>tipCard.open = (index === 0);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const backToTopLink = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-6 text-center"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;a href="#top" class="inline-block px-4 py-2 text-sm font-semibold text-slate-500 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>↑ 跳回頂端</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>`;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>tipCard.innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;summary class="flex w-full items-center justify-between p-5 cursor-pointer hover:bg-slate-50/70"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;span class="flex items-center gap-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;span class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl ${tip.color.bg} ${tip.color.text}"&gt;${tip.icon}&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;span class="text-left"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;span class="text-lg font-bold text-slate-900"&gt;${tip.title}&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;svg class="expand-icon flex-shrink-0 w-6 h-6 text-slate-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /&gt;&lt;/svg&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/summary&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="p-5 border-t border-slate-200"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>${tip.content}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>${backToTopLink}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>tipsContainer.appendChild(tipCard);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// --- 精準錨點跳轉功能 ---</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function smoothScrollTo(targetId) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const targetElement = document.getElementById(targetId);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!targetElement) return;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const headerOffset = header.offsetHeight + 20; // 導覽列高度 + 20px 間距</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const elementPosition = targetElement.getBoundingClientRect().top;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const offsetPosition = elementPosition + window.pageYOffset - headerOffset;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.scrollTo({</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>top: offsetPosition,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>behavior: "smooth"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// 為總覽區的連結加上點擊事件監聽</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>summaryContainer.addEventListener('click', function(e) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const link = e.target.closest('.summary-link');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (link &amp;&amp; link.hash) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>e.preventDefault();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const targetId = link.hash.substring(1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>smoothScrollTo(targetId);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// 確保目標區塊是展開的</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const targetDetails = document.getElementById(targetId);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (targetDetails &amp;&amp; !targetDetails.open) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>targetDetails.open = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
